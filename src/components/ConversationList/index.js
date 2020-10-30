@@ -4,16 +4,19 @@ import { Typography, Avatar } from 'antd';
 
 import * as S from './styles';
 
-const ConversationList = ({ conversations, onClick }) => {
+const ConversationList = ({ conversations, onClick, loggedUserId }) => {
 	return (
 		<S.List>
 			{conversations.map((conversation) => {
-				const participant = conversation.participants[1];
+				const participant = conversation.participants.filter(
+					(p) => p.id !== loggedUserId
+				)[0];
+
 				const fullName = `${participant.first_name} ${participant.last_name}`;
 				return (
 					<S.ListItem
 						key={conversation.id}
-						onClick={() => onClick(conversation.id)}
+						onClick={() => onClick(conversation.id, participant)}
 					>
 						<Avatar src={participant.avatar_url} alt={fullName} />
 						<Typography.Text strong>{fullName}</Typography.Text>
