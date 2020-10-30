@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
 import { conversationReducer } from './conversationDuck';
+import { userReducer } from './userDuck';
 
 const rootReducer = combineReducers({
-	conversation: conversationReducer
+	conversation: conversationReducer,
+	user: userReducer
 });
 
 const appReducer = (state, action) => {

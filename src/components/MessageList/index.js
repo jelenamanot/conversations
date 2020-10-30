@@ -5,7 +5,7 @@ import { Spin, Empty, Tooltip, Avatar } from 'antd';
 
 import * as S from './styles';
 
-const MessageList = ({ isLoading, messages }) => {
+const MessageList = ({ isLoading, messages, loggedUserId }) => {
 	return (
 		<S.List>
 			{isLoading && <Spin />}
@@ -16,9 +16,7 @@ const MessageList = ({ isLoading, messages }) => {
 					{messages.map((message) => {
 						const { participant, created_at, content } = message;
 						const fullName = `${participant.first_name} ${participant.last_name}`;
-						// TODO
-						const isUser =
-							participant.id === 'c86604b2-70ca-4831-ad85-4dd419ffc28b';
+						const isUser = participant.id === loggedUserId;
 
 						return (
 							<S.Comment

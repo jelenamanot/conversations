@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Header from '../../components/Header';
 import ConversationList from '../../components/ConversationList';
 import MessageList from '../../components/MessageList';
 
@@ -10,9 +11,14 @@ const ConversationComponent = ({
 	getConversationById,
 	conversations,
 	messages,
-	isLoading
+	isLoading,
+	user,
+	getUser
 }) => {
-	React.useEffect(() => getConversations(), [getConversations]);
+	React.useEffect(() => {
+		getUser();
+		getConversations();
+	}, [getUser, getConversations]);
 
 	const handleListItemClick = (id) => {
 		getConversationById(id);
@@ -20,14 +26,18 @@ const ConversationComponent = ({
 
 	return (
 		<S.Layout>
-			<S.Header>header</S.Header>
+			<Header user={user} />
 			<S.Content>
 				<ConversationList
 					conversations={conversations}
 					onClick={handleListItemClick}
 				/>
 				<S.ListWrapper>
-					<MessageList messages={messages} isLoading={isLoading} />
+					<MessageList
+						messages={messages}
+						isLoading={isLoading}
+						loggedUserId={user.id}
+					/>
 				</S.ListWrapper>
 			</S.Content>
 		</S.Layout>

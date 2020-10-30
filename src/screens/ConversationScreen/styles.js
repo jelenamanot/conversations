@@ -5,8 +5,6 @@ export const Layout = styled(L)`
 	height: 100vh;
 `;
 
-export const Header = styled(L.Header)``;
-
 export const Content = styled(L.Content)`
 	display: flex;
 	flex-direction: row;
