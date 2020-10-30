@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { Comment as C } from 'antd';
 
 export const List = styled.div`
-	height: 50vh;
+	height: 55vh;
 	overflow-y: auto;
 `;
 
