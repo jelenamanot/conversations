@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { formatDistanceToNow, format } from 'date-fns';
-import { Spin, Empty, Tooltip, Avatar } from 'antd';
+import { Empty, Tooltip, Avatar } from 'antd';
 
 import * as S from './styles';
 
-const MessageList = ({ isLoading, messages, loggedUserId }) => {
+const MessageList = ({ messages, loggedUserId }) => {
 	const messagesEndRef = React.useRef(null);
 
 	const scrollToBottom = () => {
@@ -16,7 +16,6 @@ const MessageList = ({ isLoading, messages, loggedUserId }) => {
 
 	return (
 		<S.List>
-			{isLoading && <Spin />}
 			{!messages.length ? (
 				<Empty description="Please choose conversation" />
 			) : (
@@ -51,8 +50,12 @@ const MessageList = ({ isLoading, messages, loggedUserId }) => {
 };
 
 MessageList.propTypes = {
-	isLoading: PropTypes.bool.isRequired,
-	messages: PropTypes.array.isRequired
+	messages: PropTypes.array.isRequired,
+	loggedUserId: PropTypes.string
+};
+
+MessageList.defaultProps = {
+	loggedUserId: null
 };
 
 export default MessageList;

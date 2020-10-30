@@ -1,4 +1,5 @@
 import React from 'react';
+import { Spin } from 'antd';
 import PropTypes from 'prop-types';
 import Header from '../../components/Header';
 import ConversationList from '../../components/ConversationList';
@@ -46,21 +47,19 @@ const ConversationComponent = ({
 					currentConversationId={currentConversationId}
 				/>
 				<S.ListWrapper>
-					{messages.length ? (
-						<ConversationHeader participant={participant} />
-					) : null}
-					<MessageList
-						messages={messages}
-						isLoading={isLoading}
-						loggedUserId={user.id}
-					/>
-					{messages.length ? (
-						<MessageForm
-							isLoading={isLoading}
-							user={user}
-							onClick={handleSendClick}
-						/>
-					) : null}
+					<Spin spinning={isLoading}>
+						{messages.length ? (
+							<ConversationHeader participant={participant} />
+						) : null}
+						<MessageList messages={messages} loggedUserId={user.id} />
+						{messages.length ? (
+							<MessageForm
+								isLoading={isLoading}
+								user={user}
+								onClick={handleSendClick}
+							/>
+						) : null}
+					</Spin>
 				</S.ListWrapper>
 			</S.Content>
 		</S.Layout>
