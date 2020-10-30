@@ -12,3 +12,8 @@ export const Content = styled(L.Content)`
 	flex-direction: row;
 	padding: 20px 50px;
 `;
+
+export const ListWrapper = styled.div`
+	width: 100%;
+	margin: 0 20px;
+`;

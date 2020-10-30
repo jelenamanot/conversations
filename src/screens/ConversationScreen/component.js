@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ConversationList from '../../components/ConversationList';
+import MessageList from '../../components/MessageList';
 
 import * as S from './styles';
 
 const ConversationComponent = ({
 	getConversations,
 	getConversationById,
-	conversations
+	conversations,
+	messages,
+	isLoading
 }) => {
 	React.useEffect(() => getConversations(), [getConversations]);
 
@@ -23,7 +26,9 @@ const ConversationComponent = ({
 					conversations={conversations}
 					onClick={handleListItemClick}
 				/>
-				<div>messages</div>
+				<S.ListWrapper>
+					<MessageList messages={messages} isLoading={isLoading} />
+				</S.ListWrapper>
 			</S.Content>
 		</S.Layout>
 	);
