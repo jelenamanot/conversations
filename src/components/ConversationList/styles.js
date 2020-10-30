@@ -14,6 +14,10 @@ export const ListItem = styled.div`
 	padding: 20px;
 	background-color: white;
 	cursor: pointer;
+	border-left-width: 5px;
+	border-left-style: solid;
+	border-left-color: ${({ isCurrent, theme }) =>
+		isCurrent ? theme.primaryColor : 'white'};
 
 	& > .ant-avatar {
 		margin-right: 15px;

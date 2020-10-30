@@ -16,7 +16,8 @@ const ConversationComponent = ({
 	isLoading,
 	user,
 	getUser,
-	postMessage
+	postMessage,
+	currentConversationId
 }) => {
 	const [participant, setParticipant] = React.useState({});
 
@@ -42,6 +43,7 @@ const ConversationComponent = ({
 					conversations={conversations}
 					onClick={handleListItemClick}
 					loggedUserId={user.id}
+					currentConversationId={currentConversationId}
 				/>
 				<S.ListWrapper>
 					{messages.length ? (
@@ -68,7 +70,17 @@ const ConversationComponent = ({
 ConversationComponent.propTypes = {
 	getConversations: PropTypes.func.isRequired,
 	getConversationById: PropTypes.func.isRequired,
-	conversations: PropTypes.array.isRequired
+	conversations: PropTypes.array.isRequired,
+	messages: PropTypes.array.isRequired,
+	isLoading: PropTypes.bool.isRequired,
+	user: PropTypes.object.isRequired,
+	getUser: PropTypes.func.isRequired,
+	postMessage: PropTypes.func.isRequired,
+	currentConversationId: PropTypes.number
+};
+
+ConversationComponent.propTypes = {
+	currentConversationId: null
 };
 
 export default ConversationComponent;
