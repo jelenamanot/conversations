@@ -20,9 +20,24 @@ async function getConversationMessages(id) {
 	}
 }
 
+async function postMessage(id, content) {
+	try {
+		const response = await axios.post(
+			`${API_URL}/conversations/${id}/messages`,
+			{
+				content
+			}
+		);
+		return response.data;
+	} catch (error) {
+		console.error(error);
+	}
+}
+
 const service = {
 	getConversations,
-	getConversationMessages
+	getConversationMessages,
+	postMessage
 };
 
 export default service;

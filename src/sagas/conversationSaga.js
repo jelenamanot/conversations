@@ -1,4 +1,4 @@
-import { all, put, call, takeEvery } from 'redux-saga/effects';
+import { all, put, call, takeEvery, select } from 'redux-saga/effects';
 import ConversationService from 'services/conversationService';
 import { actionTypes as conversationActionTypes } from 'ducks/conversationDuck';
 
@@ -36,6 +36,35 @@ function* getConversationByIdSaga(action) {
 	}
 }
 
+function* postMessageSaga(action) {
+	try {
+		const { currentConversationId } = yield select(
+			(state) => state.conversation
+		);
+		const { user } = yield select((state) => state.user);
+
+		const newMessage = yield call(
+			ConversationService.postMessage,
+			currentConversationId,
+			action.content
+		);
+
+		yield put({
+			type: conversationActionTypes.CONVERSATION_POST_MESSAGE_SUCCESS,
+			newMessage: {
+				...newMessage,
+				participant: user,
+				created_at: new Date()
+			}
+		});
+	} catch (error) {
+		yield put({
+			type: conversationActionTypes.CONVERSATION_POST_MESSAGE_FAILURE,
+			error
+		});
+	}
+}
+
 export default function* conversationSaga() {
 	yield all([
 		takeEvery(
@@ -45,6 +74,10 @@ export default function* conversationSaga() {
 		takeEvery(
 			conversationActionTypes.CONVERSATION_GET_BY_ID_REQUEST,
 			getConversationByIdSaga
+		),
+		takeEvery(
+			conversationActionTypes.CONVERSATION_POST_MESSAGE_REQUEST,
+			postMessageSaga
 		)
 	]);
 }

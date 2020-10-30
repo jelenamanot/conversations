@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../../components/Header';
 import ConversationList from '../../components/ConversationList';
 import MessageList from '../../components/MessageList';
+import MessageForm from '../../components/MessageForm';
 
 import * as S from './styles';
 
@@ -13,7 +14,8 @@ const ConversationComponent = ({
 	messages,
 	isLoading,
 	user,
-	getUser
+	getUser,
+	postMessage
 }) => {
 	React.useEffect(() => {
 		getUser();
@@ -22,6 +24,10 @@ const ConversationComponent = ({
 
 	const handleListItemClick = (id) => {
 		getConversationById(id);
+	};
+
+	const handleSendClick = (content) => {
+		postMessage(content);
 	};
 
 	return (
@@ -38,6 +44,13 @@ const ConversationComponent = ({
 						isLoading={isLoading}
 						loggedUserId={user.id}
 					/>
+					{messages.length ? (
+						<MessageForm
+							isLoading={isLoading}
+							user={user}
+							onClick={handleSendClick}
+						/>
+					) : null}
 				</S.ListWrapper>
 			</S.Content>
 		</S.Layout>
