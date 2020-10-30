@@ -75,10 +75,10 @@ ConversationComponent.propTypes = {
 	user: PropTypes.object.isRequired,
 	getUser: PropTypes.func.isRequired,
 	postMessage: PropTypes.func.isRequired,
-	currentConversationId: PropTypes.number
+	currentConversationId: PropTypes.string
 };
 
-ConversationComponent.propTypes = {
+ConversationComponent.defaultProps = {
 	currentConversationId: null
 };
 

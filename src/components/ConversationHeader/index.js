@@ -32,7 +32,7 @@ ConversationHeader.propTypes = {
 	participant: PropTypes.object
 };
 
-ConversationHeader.propTypes = {
+ConversationHeader.defaultProps = {
 	participant: {}
 };
 
