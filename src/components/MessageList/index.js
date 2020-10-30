@@ -6,6 +6,14 @@ import { Spin, Empty, Tooltip, Avatar } from 'antd';
 import * as S from './styles';
 
 const MessageList = ({ isLoading, messages, loggedUserId }) => {
+	const messagesEndRef = React.useRef(null);
+
+	const scrollToBottom = () => {
+		messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+	};
+
+	React.useEffect(scrollToBottom, [messages]);
+
 	return (
 		<S.List>
 			{isLoading && <Spin />}
@@ -37,6 +45,7 @@ const MessageList = ({ isLoading, messages, loggedUserId }) => {
 					})}
 				</div>
 			)}
+			<div ref={messagesEndRef} />
 		</S.List>
 	);
 };
