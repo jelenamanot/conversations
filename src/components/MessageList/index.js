@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { formatDistanceToNow, format } from 'date-fns';
 import { Spin, Empty, Tooltip, Avatar } from 'antd';
 
 import * as S from './styles';
@@ -27,10 +28,10 @@ const MessageList = ({ isLoading, messages }) => {
 								avatar={<Avatar src={participant.avatar_url} alt={fullName} />}
 								content={<S.Text isUser={isUser}>{content}</S.Text>}
 								datetime={
-									<Tooltip title={created_at}>
-										{/* <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}> */}
-										{/* <span>{moment().fromNow()}</span> */}
-										{created_at}
+									<Tooltip
+										title={format(new Date(created_at), 'yyyy-MM-dd HH:mm:ss')}
+									>
+										{formatDistanceToNow(new Date(created_at))}
 									</Tooltip>
 								}
 							/>
