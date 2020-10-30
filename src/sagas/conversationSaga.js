@@ -17,11 +17,34 @@ function* getConversationsSaga() {
 	}
 }
 
+function* getConversationByIdSaga(action) {
+	try {
+		const messages = yield call(
+			ConversationService.getConversationMessages,
+			action.id
+		);
+
+		yield put({
+			type: conversationActionTypes.CONVERSATION_GET_BY_ID_SUCCESS,
+			messages
+		});
+	} catch (error) {
+		yield put({
+			type: conversationActionTypes.CONVERSATION_GET_BY_ID_FAILURE,
+			error
+		});
+	}
+}
+
 export default function* conversationSaga() {
 	yield all([
 		takeEvery(
 			conversationActionTypes.CONVERSATION_GET_REQUEST,
 			getConversationsSaga
+		),
+		takeEvery(
+			conversationActionTypes.CONVERSATION_GET_BY_ID_REQUEST,
+			getConversationByIdSaga
 		)
 	]);
 }

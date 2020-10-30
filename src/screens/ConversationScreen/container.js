@@ -6,7 +6,8 @@ import { actionCreators as conversationActionCreators } from 'ducks/conversation
 import ConversationComponent from './component';
 
 const mapStateToProps = (state) => {
-	return {};
+	const { conversations, messages } = state.conversation;
+	return { conversations, messages };
 };
 
 const mapDispatchToProps = (dispatch) => {

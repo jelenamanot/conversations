@@ -11,8 +11,18 @@ async function getConversations() {
 	}
 }
 
+async function getConversationMessages(id) {
+	try {
+		const response = await axios.get(`${API_URL}/conversations/${id}/messages`);
+		return response.data;
+	} catch (error) {
+		console.error(error);
+	}
+}
+
 const service = {
-	getConversations
+	getConversations,
+	getConversationMessages
 };
 
 export default service;
