@@ -28,6 +28,11 @@ To run application:
 $ npm start
 ```
 
+## Live
+
+Deployed app to gh-pages, check it on -
+[this link](https://jelenamanot.github.io/conversations).
+
 ## Tech Stack
 
 - **React** - using latest features - React Hooks
