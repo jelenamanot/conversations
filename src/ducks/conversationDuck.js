@@ -20,7 +20,7 @@ export const initialState = {
 	currentConversationId: null
 };
 
-export const conversationReducer = (state = initialState, action) => {
+export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case actionTypes.CONVERSATION_GET_REQUEST:
 		case actionTypes.CONVERSATION_POST_MESSAGE_REQUEST:
@@ -72,7 +72,7 @@ export const conversationReducer = (state = initialState, action) => {
 		default:
 			return state;
 	}
-};
+}
 
 export const actionCreators = {
 	getConversations: () => ({

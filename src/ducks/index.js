@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { conversationReducer } from './conversationDuck';
-import { userReducer } from './userDuck';
+import conversationReducer from './conversationDuck';
+import userReducer from './userDuck';
 
 const rootReducer = combineReducers({
 	conversation: conversationReducer,

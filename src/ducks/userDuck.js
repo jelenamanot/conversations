@@ -10,7 +10,7 @@ export const initialState = {
 	isLoading: false
 };
 
-export const userReducer = (state = initialState, action) => {
+export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case actionTypes.USER_GET_REQUEST:
 			return {
@@ -34,7 +34,7 @@ export const userReducer = (state = initialState, action) => {
 		default:
 			return state;
 	}
-};
+}
 
 export const actionCreators = {
 	getUser: () => ({
