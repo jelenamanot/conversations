@@ -5,6 +5,13 @@ import { Comment, Avatar, Input, Form, Button } from 'antd';
 const MessageForm = ({ user, isLoading, onClick }) => {
 	const [content, setContent] = React.useState('');
 
+	const handleSetContent = (e) => setContent(e.target.value);
+
+	const handleClick = () => {
+		onClick(content);
+		setContent('');
+	};
+
 	return (
 		<Comment
 			avatar={<Avatar src={user.avatar_url} alt={user.first_name} />}
@@ -13,24 +20,19 @@ const MessageForm = ({ user, isLoading, onClick }) => {
 					<Form.Item>
 						<Input.TextArea
 							rows={4}
-							onChange={(e) => setContent(e.target.value)}
+							onChange={handleSetContent}
 							value={content}
 							placeholder="Type your message..."
 						/>
 					</Form.Item>
 					<Form.Item>
-						<Button
-							htmlType="submit"
-							loading={isLoading}
-							onClick={() => {
-								onClick(content);
-								setContent('');
-							}}
-							type="primary"
+						<button
+							className="ant-btn ant-btn-primary"
+							onClick={handleClick}
 							disabled={!content}
 						>
 							Send
-						</Button>
+						</button>
 					</Form.Item>
 				</>
 			}

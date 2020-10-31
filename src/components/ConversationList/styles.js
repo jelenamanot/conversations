@@ -22,4 +22,19 @@ export const ListItem = styled.div`
 	& > .ant-avatar {
 		margin-right: 15px;
 	}
+
+	@media (max-width: 992px) {
+		.ant-typography {
+			font-size: 12px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.ant-typography {
+			display: none;
+		}
+		.ant-avatar {
+			margin-right: 0;
+		}
+	}
 `;

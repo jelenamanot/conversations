@@ -12,8 +12,8 @@ export const Comment = styled(C)`
 	border-radius: 8px;
 	background-color: white;
 
-	${({ isUser, theme }) =>
-		isUser &&
+	${({ $isUser, theme }) =>
+		$isUser &&
 		css`
 			margin: 6px 0 6px 51%;
 			background-color: ${theme.primaryColor};
@@ -21,5 +21,5 @@ export const Comment = styled(C)`
 `;
 
 export const Text = styled.p`
-	color: ${({ isUser }) => (isUser ? 'white' : 'black')};
+	color: ${({ $isUser }) => ($isUser ? 'white' : 'black')};
 `;

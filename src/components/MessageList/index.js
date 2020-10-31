@@ -28,10 +28,10 @@ const MessageList = ({ messages, loggedUserId }) => {
 						return (
 							<S.Comment
 								key={message.id}
-								isUser={isUser}
-								author={<S.Text isUser={isUser}>{fullName}</S.Text>}
+								$isUser={isUser}
+								author={<S.Text $isUser={isUser}>{fullName}</S.Text>}
 								avatar={<Avatar src={participant.avatar_url} alt={fullName} />}
-								content={<S.Text isUser={isUser}>{content}</S.Text>}
+								content={<S.Text $isUser={isUser}>{content}</S.Text>}
 								datetime={
 									<Tooltip
 										title={format(new Date(created_at), 'yyyy-MM-dd HH:mm:ss')}
