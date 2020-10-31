@@ -1,11 +1,11 @@
 import React from 'react';
 import { Spin } from 'antd';
 import PropTypes from 'prop-types';
-import Header from '../../components/Header';
-import ConversationList from '../../components/ConversationList';
-import MessageList from '../../components/MessageList';
-import MessageForm from '../../components/MessageForm';
-import ConversationHeader from '../../components/ConversationHeader';
+import Header from 'components/Header';
+import ConversationList from 'components/ConversationList';
+import MessageList from 'components/MessageList';
+import MessageForm from 'components/MessageForm';
+import ConversationHeader from 'components/ConversationHeader';
 
 import * as S from './styles';
 

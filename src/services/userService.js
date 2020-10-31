@@ -1,6 +1,6 @@
 import axios from 'axios';
 // Config
-import { API_URL } from '../config';
+import { API_URL } from 'config';
 
 async function getUser() {
 	try {
