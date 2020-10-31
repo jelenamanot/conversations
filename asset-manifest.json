@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/conversations/static/css/main.b42108d8.chunk.css",
+    "main.js": "/conversations/static/js/main.d6934ab5.chunk.js",
+    "main.js.map": "/conversations/static/js/main.d6934ab5.chunk.js.map",
+    "runtime-main.js": "/conversations/static/js/runtime-main.5dfa0a8f.js",
+    "runtime-main.js.map": "/conversations/static/js/runtime-main.5dfa0a8f.js.map",
+    "static/css/2.8ddd9e3d.chunk.css": "/conversations/static/css/2.8ddd9e3d.chunk.css",
+    "static/js/2.5783ec45.chunk.js": "/conversations/static/js/2.5783ec45.chunk.js",
+    "static/js/2.5783ec45.chunk.js.map": "/conversations/static/js/2.5783ec45.chunk.js.map",
+    "static/js/3.188e0db6.chunk.js": "/conversations/static/js/3.188e0db6.chunk.js",
+    "static/js/3.188e0db6.chunk.js.map": "/conversations/static/js/3.188e0db6.chunk.js.map",
+    "index.html": "/conversations/index.html",
+    "static/css/2.8ddd9e3d.chunk.css.map": "/conversations/static/css/2.8ddd9e3d.chunk.css.map",
+    "static/css/main.b42108d8.chunk.css.map": "/conversations/static/css/main.b42108d8.chunk.css.map",
+    "static/js/2.5783ec45.chunk.js.LICENSE.txt": "/conversations/static/js/2.5783ec45.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5dfa0a8f.js",
+    "static/css/2.8ddd9e3d.chunk.css",
+    "static/js/2.5783ec45.chunk.js",
+    "static/css/main.b42108d8.chunk.css",
+    "static/js/main.d6934ab5.chunk.js"
+  ]
+}
